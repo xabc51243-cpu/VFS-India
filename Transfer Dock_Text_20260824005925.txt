@@ -1,0 +1,396 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verma Financial Services | Tax & Registration Portal</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.75);
+            --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.5);
+            --accent: #10b981;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 40%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area h1 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-area p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .contact-pill {
+            display: flex;
+            gap: 12px;
+        }
+
+        .contact-pill a {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 8px 14px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-pill a.wa:hover { background: #25d366; border-color: #25d366; }
+        .contact-pill a.call:hover { background: var(--primary); border-color: var(--primary); }
+
+        .container {
+            max-width: 1100px;
+            margin: 110px auto 50px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; margin-top: 90px; }
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h2 span { color: var(--primary); }
+
+        .hero-content p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .office-location-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+        }
+
+        .office-location-box h4 {
+            font-size: 0.95rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .office-location-box p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .service-badge {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 12px 14px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-badge i { color: var(--accent); }
+
+        .form-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .form-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .form-card > p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .input-group input, .input-group select, .input-group textarea {
+            width: 100%;
+            background: rgba(11, 15, 25, 0.6);
+            border: 1px solid var(--border-color);
+            padding: 11px 14px;
+            border-radius: 10px;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input[type="file"] {
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            cursor: pointer;
+        }
+
+        .input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-glow);
+        }
+
+        .file-hint {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .btn-submit-container {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .btn-action {
+            flex: 1;
+            padding: 13px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .btn-action:active { transform: scale(0.98); }
+        .btn-whatsapp { background: #25d366; color: #fff; }
+        .btn-email { background: var(--primary); color: #fff; }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <h1>Verma Financial Services</h1>
+            <p>Proprietor: Priyam Verma</p>
+        </div>
+        <div class="contact-pill">
+            <a href="https://wa.me/919162112145" target="_blank" class="wa"><i class="fa-brands fa-whatsapp"></i> Chat</a>
+            <a href="tel:9162112145" class="call"><i class="fa-solid fa-phone"></i> Call</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero-content">
+            <h2>Professional <span>Tax & Registration</span> Services</h2>
+            <p>Apne business aur personal tax filings ke liye documents aasaani se upload karein. Fast, secure, aur reliable solution.</p>
+            
+            <div class="office-location-box">
+                <h4><i class="fa-solid fa-location-dot"></i> Office Location</h4>
+                <p>Araria, Bihar - 854316</p>
+                <p style="margin-top: 5px; font-size: 0.8rem;">Email: priyam1997verma@gmail.com | Mob: +91 9162112145</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-badge"><i class="fa-solid fa-check-circle"></i> GST Registration</div>
+                <div class="service-badge"><i class="fa-solid fa-check-circle"></i> GST Monthly Filing</div>
+                <div class="service-badge"><i class="fa-solid fa-check-circle"></i> ITR Filing (1 to 4)</div>
+                <div class="service-badge"><i class="fa-solid fa-check-circle"></i> MSME / Udyam</div>
+            </div>
+        </div>
+
+        <div class="form-card">
+            <h3>Send Request & Documents</h3>
+            <p>Details bharein, document select karein aur WhatsApp/Email par bhej dein.</p>
+            
+            <form id="serviceForm">
+                <div class="input-group">
+                    <label>Aapka Naam (Client Name)</label>
+                    <input type="text" id="clientName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" id="clientPhone" placeholder="Enter 10-digit mobile number" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Service Select Karein</label>
+                    <select id="serviceType" required>
+                        <option value="" disabled selected>-- Choose Service --</option>
+                        <option value="GST Registration">GST Registration</option>
+                        <option value="GST Return Filing">GST Return Filing</option>
+                        <option value="ITR Filing">Income Tax Return (ITR) Filing</option>
+                        <option value="MSME Registration">MSME / Udyam Registration</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Document Upload (PAN, Aadhaar, etc.)</label>
+                    <input type="file" id="clientFile" accept="image/*,.pdf,.doc,.docx">
+                    <div class="file-hint">*Aap yahan document select kar sakte hain (WhatsApp par message ke sath file name jayega).</div>
+                </div>
+
+                <div class="input-group">
+                    <label>Notes / Message</label>
+                    <textarea id="clientMessage" rows="2" placeholder="Kuch aur batana ho toh yahan likhein..."></textarea>
+                </div>
+
+                <div class="btn-submit-container">
+                    <button type="button" onclick="sendToWhatsApp()" class="btn-action btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </button>
+                    <button type="button" onclick="sendToEmail()" class="btn-action btn-email">
+                        <i class="fa-solid fa-envelope"></i> Email
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <strong>Verma Financial Services</strong> (Proprietor: Priyam Verma)<br>
+        Office Address: Araria, Bihar - 854316 | Mobile: +91 9162112145<br>
+        &copy; 2026 All Rights Reserved.
+    </footer>
+
+    <script>
+        function sendToWhatsApp() {
+            const name = document.getElementById('clientName').value.trim();
+            const phone = document.getElementById('clientPhone').value.trim();
+            const service = document.getElementById('serviceType').value;
+            const fileInput = document.getElementById('clientFile');
+            const message = document.getElementById('clientMessage').value.trim();
+
+            if (!name || !phone || !service) {
+                alert('Kripya Naam, Mobile Number aur Service zaroor bharein!');
+                return;
+            }
+
+            let fileName = "Koi file select nahi ki gayi";
+            if (fileInput.files.length > 0) {
+                fileName = fileInput.files[0].name;
+            }
+
+            const text = `*New Service Request - Verma Financial Services*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Service:* ${service}%0A*Attached Doc:* ${fileName}%0A*Message:* ${message || 'N/A'}`;
+            const whatsappUrl = `https://wa.me/919162112145?text=${text}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function sendToEmail() {
+            const name = document.getElementById('clientName').value.trim();
+            const phone = document.getElementById('clientPhone').value.trim();
+            const service = document.getElementById('serviceType').value;
+            const fileInput = document.getElementById('clientFile');
+            const message = document.getElementById('clientMessage').value.trim();
+
+            if (!name || !phone || !service) {
+                alert('Kripya Naam, Mobile Number aur Service zaroor bharein!');
+                return;
+            }
+
+            let fileName = "No file attached";
+            if (fileInput.files.length > 0) {
+                fileName = fileInput.files[0].name;
+            }
+
+            const subject = encodeURIComponent(`Service Request: ${service} - ${name}`);
+            const body = encodeURIComponent(`Hello Priyam Verma,\n\nI want to request service for ${service}.\n\nClient Name: ${name}\nPhone: ${phone}\nAttached Document Name: ${fileName}\nAdditional Notes:\n${message}\n\nOffice Address Reference: Araria, Bihar - 854316\n\nThank You.`);
+            const mailtoUrl = `mailto:priyam1997verma@gmail.com?subject=${subject}&body=${body}`;
+            window.location.href = mailtoUrl;
+        }
+    </script>
+</body>
+</html>
